@@ -1,17 +1,13 @@
+# frozen_string_literal: true
+
 class Year
-  def self.leap? year
-    self.by_four_hundred?(year) || self.by_four?(year) && !self.by_one_hundred?(year)
+  def self.leap?(year)
+    divisible_by?(year, 400) ||
+      divisible_by?(year, 4) &&
+        !divisible_by?(year, 100)
   end
 
-  def self.by_four? year
-    year % 4 == 0 
-  end
-
-  def self.by_one_hundred? year
-    year % 100 == 0
-  end
-
-  def self.by_four_hundred? year
-    year % 400 == 0
+  def self.divisible_by?(year, number)
+    (year % number).zero?
   end
 end
