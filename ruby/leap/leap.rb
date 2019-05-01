@@ -6,8 +6,9 @@ class Year
       divisible_by?(year, 4) &&
         !divisible_by?(year, 100)
   end
-
+  
   def self.divisible_by?(year, number)
     (year % number).zero?
   end
+  private_class_method :divisible_by?
 end
